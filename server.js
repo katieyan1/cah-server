@@ -6,12 +6,9 @@ const cors = require('cors');
 const path = require('path');
 const CahGame = require('./game/cah');
 app.use(cors());
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('/build'));
-// }
-// app.get('*', (request, response) => {
-//   response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-// });
+// app.use((req, res, next) => {
+//   res.header()
+// })
 function makeid(length) {
   var result = '';
   var characters =
@@ -27,7 +24,7 @@ let namespaces = {};
 
 const whitelist = [
   'http://localhost:3000',
-  'http://kards-against-humanity.herokuapp.com/',
+  'https://kards-against-humanity.herokuapp.com',
 ];
 
 const corsOptions = {

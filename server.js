@@ -3,12 +3,8 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const cors = require('cors');
-const path = require('path');
 const CahGame = require('./game/cah');
 app.use(cors());
-// app.use((req, res, next) => {
-//   res.header()
-// })
 function makeid(length) {
   var result = '';
   var characters =
@@ -54,7 +50,6 @@ app.get('/createNamespace', (req, res) => {
 });
 
 app.get('/exists/:namespace', (req, res) => {
-  //returns bool
   const namespace = req.params.namespace;
   res.json({ exists: namespace in namespaces });
 });

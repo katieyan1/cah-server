@@ -106,6 +106,11 @@ const openSocket = (gameSocket, namespace) => {
       console.log('disconnected: ' + socket.id);
       socket.removeAllListeners('connection');
       socket.removeAllListeners('disconnect');
+      players.map((x, index) => {
+        if (x.socket_id == socket.id) {
+          players[index].player = '';
+        }
+      });
       updatePartyList();
     });
   });
